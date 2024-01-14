@@ -1,0 +1,11 @@
+[init]
+	defaultBranch = master
+[user]
+	name = sixfourtwelve
+	email = ethan@gweithio.com
+[sendemail]
+    smtpUser = ethan@gweithio.com
+    smtpServer = smtp.office365.com
+    smtpEncryption = tls
+    smtpServerPort = 587
+    annotate = yes
