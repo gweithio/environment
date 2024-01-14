@@ -15,20 +15,22 @@ vim.opt.rtp:prepend(lazypath)
 return require("lazy").setup({
   { "wbthomason/packer.nvim" },
   { "folke/tokyonight.nvim" },
+  { "lewis6991/gitsigns.nvim" },
   { "nvim-treesitter/nvim-treesitter", build = ':TSUpdate' },
   { "nvim-treesitter/playground" },
   { "tpope/vim-fugitive" },
   { "dmmulroy/tsc.nvim" },
+
+  -- Git stuff
   { "lewis6991/gitsigns.nvim" },
   { "f-person/git-blame.nvim" },
+
   { 'reasonml-editor/vim-reason-plus' },
   { 'danielo515/nvim-treesitter-reason' },
   { 'windwp/nvim-autopairs' },
   { 'nkrkv/nvim-treesitter-rescript' },
   { 'rescript-lang/vim-rescript' },
-
   { 'scalameta/nvim-metals', dependencies = { 'nvim-lua/plenary.nvim' } },
-
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -51,7 +53,6 @@ return require("lazy").setup({
       { 'rafamadriz/friendly-snippets' },
     }
   },
-
   { 'mhartington/formatter.nvim' },
   { 'kyazdani42/nvim-tree.lua', dependencies = 'kyazdani42/nvim-web-devicons' },
   { 'nvim-telescope/telescope.nvim', dependencies = { { 'nvim-lua/plenary.nvim' } } },
