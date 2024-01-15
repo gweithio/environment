@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 
-require("lazy").setup({
+return require("lazy").setup({
   { "folke/tokyonight.nvim" },
   { "lewis6991/gitsigns.nvim" },
   { "nvim-treesitter/nvim-treesitter", build = ':TSUpdate' },
