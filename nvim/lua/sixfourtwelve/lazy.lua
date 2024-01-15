@@ -9,11 +9,11 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-
 vim.opt.rtp:prepend(lazypath)
 
-return require("lazy").setup({
-  { "wbthomason/packer.nvim" },
+vim.g.mapleader = " "
+
+require("lazy").setup({
   { "folke/tokyonight.nvim" },
   { "lewis6991/gitsigns.nvim" },
   { "nvim-treesitter/nvim-treesitter", build = ':TSUpdate' },

@@ -36,7 +36,6 @@ vim.keymap.set('n', 'gd', '<cmd>lua require"telescope.builtin".lsp_definitions({
 
 local opts = { buffer = bufnr, remap = false, reuse_win = true }
 lsp.on_attach(function(_client, _bufnr)
-  -- vim.keymap.set("n", "gd", '<cmd>Telescope lsp_definitions<CR>', opts)
   vim.keymap.set("n", "gr", '<cmd>Telescope lsp_references<CR>', opts)
   vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)

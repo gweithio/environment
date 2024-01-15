@@ -25,7 +25,6 @@
   "nvim-treesitter-reason": { "branch": "main", "commit": "f4b91b8daeed0a0ed2604ea663401bf0e97769c0" },
   "nvim-treesitter-rescript": { "branch": "main", "commit": "21ce711396b1d836a75781d65f34241f14161f94" },
   "nvim-web-devicons": { "branch": "master", "commit": "4f5e6414438c920743fc1bb92bee1047620d6321" },
-  "packer.nvim": { "branch": "master", "commit": "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "telescope.nvim": { "branch": "master", "commit": "da8b3d485975a8727bea127518b65c980521ae22" },
