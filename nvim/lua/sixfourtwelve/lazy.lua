@@ -15,8 +15,7 @@ vim.g.mapleader = " "
 
 return require("lazy").setup({
   { "folke/tokyonight.nvim" },
-  { "lewis6991/gitsigns.nvim" },
-  { "nvim-treesitter/nvim-treesitter", build = ':TSUpdate' },
+  { "nvim-treesitter/nvim-treesitter", build = ':TSUpdate', lazy = false },
   { "nvim-treesitter/playground" },
   { "tpope/vim-fugitive" },
   { "dmmulroy/tsc.nvim" },
@@ -30,9 +29,9 @@ return require("lazy").setup({
   { 'windwp/nvim-autopairs' },
   { 'nkrkv/nvim-treesitter-rescript' },
   { 'rescript-lang/vim-rescript' },
-  { 'scalameta/nvim-metals', dependencies = { 'nvim-lua/plenary.nvim' } },
   {
     'VonHeikemen/lsp-zero.nvim',
+    lazy = false,
     branch = 'v1.x',
     dependencies = {
       -- LSP Support
