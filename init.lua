@@ -45,7 +45,7 @@ require('formatter').setup({
 vim.api.nvim_exec([[
 augroup FormatAutogroup
 autocmd!
-autocmd BufWritePost *.astro,*.test.tsx,*.test.ts,*.ts,*.tsx,*.mjs,*.js,*.jsx,*.json,*.graphql,*.ml,*.mli,*.c,*.h FormatWrite
+autocmd BufWritePost *.astro,*.test.tsx,*.test.ts,*.ts,*.tsx,*.mjs,*.js,*.jsx,*.json,*.graphql,*.ml,*.mli,*.c,*.h,*.lua FormatWrite
 augroup END
 ]], true)
 
@@ -54,6 +54,7 @@ let g:colorizer_auto_color = 1
 set clipboard=unnamedplus
 ]], true)
 
+vim.api.nvim_command("autocmd BufWritePre *.test.tsx,*.test.ts,*.ts,*.tsx,*.mjs,*.js,*.jsx,*.json EslintFixAll")
 vim.api.nvim_command("autocmd BufWritePre *.ex,*.go lua vim.lsp.buf.format()")
 
 require('wlsample.airline')

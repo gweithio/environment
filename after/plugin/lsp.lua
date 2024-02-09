@@ -41,9 +41,11 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "ca", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "rn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("n", "hh", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "gl", function() vim.diagnostic.show_line_diagnostics() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
  end)
+
 
 lsp.configure("vtsls", {
   root_dir = require("lspconfig").util.root_pattern(".git", "pnpm-workspace.yaml", "pnpm-lock.yaml", "yarn.lock",
