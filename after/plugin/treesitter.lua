@@ -31,3 +31,15 @@ require('nvim-treesitter.configs').setup {
 require('treesitter-context').setup {
   enable = true
 }
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.unison = {
+  install_info = {
+    url = "~/tree-sitter-unison/src/maybe.c",
+    files = {"src/parser.c"}, 
+    generate_requires_npm = false,
+    requires_generate_from_grammar = false,
+  },
+  filetype = "unison", 
+}
+
