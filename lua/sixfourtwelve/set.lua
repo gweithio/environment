@@ -1,4 +1,4 @@
-vim.o.termguicolors = 1
+vim.o.termguicolors = true 
 vim.o.number = true
 vim.o.numberwidth = 1
 vim.o.tabstop = 2

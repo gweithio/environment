@@ -3,7 +3,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   "vtsls",
-  "gopls",
   "astro"
 })
 
