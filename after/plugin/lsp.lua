@@ -1,14 +1,10 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
-lsp.ensure_installed({
-  "vtsls",
-  "astro"
-})
-
 lsp.set_preferences({
   sign_icons = { error = " ", warn = " ", hint = " ", info = " " }
 })
+
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
@@ -43,75 +39,12 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "gl", function() vim.diagnostic.show_line_diagnostics() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
- end)
-
-
-lsp.configure("vtsls", {
-  root_dir = require("lspconfig").util.root_pattern(".git", "pnpm-workspace.yaml", "pnpm-lock.yaml", "yarn.lock",
-    "package-lock.json", "bun.lockb"),
-  experimental = {
-    completion = {
-      entriesLimit = 3
-    }
-  }
-})
-
--- This function is for configuring a buffer when an LSP is attached
-local on_attach = function(client, bufnr)
-  -- Always show the signcolumn, otherwise it would shift the text each time
-  -- diagnostics appear/become resolved
-  vim.o.signcolumn = 'yes'
-
-  -- Update the cursor hover location every 1/4 of a second
-  vim.o.updatetime = 250
-
-  -- Disable appending of the error text at the offending line
-  vim.diagnostic.config({virtual_text=false})
-
-  -- Enable a floating window containing the error text when hovering over an error
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      local opts = {
-        focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-        border = 'rounded',
-        source = 'always',
-        prefix = ' ',
-        scope = 'cursor',
-      }
-      vim.diagnostic.open_float(nil, opts)
-    end
-  })
-
-  -- This setting is to display hover information about the symbol under the cursor
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-
-end
-
--- Setup the Unison LSP
-require('lspconfig')['unison'].setup{
-    on_attach = on_attach,
-}
+end)
 
 lsp.setup()
+
+require 'lspconfig'.clangd.setup {}
 
 vim.diagnostic.config({
   virtual_text = true
 })
-
-require("tsc").setup()
-
-require("copilot").setup({
-  suggestion = {
-    auto_trigger = true,
-    keymap = {
-      accept = "<C-l>"
-    }
-  }
-})
-
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
-vim.g.copilot_tab_fallback = ""
-vim.keymap.set("i", "<C-j>", 'copilot#Accept()', { expr = true, silent = true })

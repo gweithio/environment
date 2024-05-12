@@ -9,11 +9,11 @@ require 'nvim-tree'.setup {
     enable = true,
   },
   view = {
-    width = 40,
+    width = 25,
     adaptive_size = true,
     float = {
       quit_on_focus_loss = true,
-      enable = true
+      enable = false
     }
   }
 }
