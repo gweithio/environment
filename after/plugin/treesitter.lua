@@ -1,44 +1,16 @@
 require('nvim-treesitter.configs').setup {
-  -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "typescript", "javascript", "lua", "ocaml", "go", "dockerfile", "svelte", "json", "yaml", "toml", "html", "css", "bash", "tsx", "tsx", "python", "rust", "haskell" },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
+  ensure_installed = { "typescript", "c", "cpp", "javascript", "lua", "ocaml", "go", "dockerfile", "php", "perl", "json", "yaml", "toml", "html", "css", "bash", "tsx", "python", "rust", "haskell" },
   sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
   indent = {
     enable = true,
   },
-
   highlight = {
-    -- `false` will disable the whole extension
     enable = true,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
 }
 
 require('treesitter-context').setup {
   enable = true
-}
-
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.unison = {
-  install_info = {
-    url = "~/tree-sitter-unison/src/maybe.c",
-    files = { "src/parser.c" },
-    generate_requires_npm = false,
-    requires_generate_from_grammar = false,
-  },
-  filetype = "unison",
 }

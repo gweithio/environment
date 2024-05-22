@@ -1,6 +1,6 @@
 vim.o.termguicolors = true
 vim.o.number = false
-vim.o.laststatus = false
+vim.o.laststatus = 3
 vim.o.numberwidth = 1
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -10,6 +10,7 @@ vim.o.mouse = "a"
 vim.o.wrap = true
 
 vim.o.signcolumn = "yes"
+vim.o.syntax = "on"
 
 vim.opt.smartindent = true
 

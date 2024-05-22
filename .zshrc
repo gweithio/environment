@@ -1,8 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="vercel"
-ZSH_THEME="apple"
+#ZSH_THEME="saturn"
 
 plugins=(git svn mercurial golang)
 
@@ -63,9 +63,9 @@ alias gfg="git log --graph"
 alias gfgp="git log --graph --pretty=oneline --abbrev-commit"
 alias clearpatch="rm -rf ~/Patches*"
 
+export PATH="/opt/homebrew/Cellar/llvm/18.1.5/bin:$PATH"
 export PATH="$HOME/Odin:$PATH"
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-export PATH="$HOME/odin-source/:$PATH"
 
 eval "$(/Users/ethanmorgan/.local/bin/mise activate zsh)"
 
@@ -99,3 +99,6 @@ function soft-remote () {
 export TERM=xterm-256color
 
 export USER="ethan"
+
+export PLAN9=/Users/ethanmorgan/plan9
+export PATH="$PATH:$PLAN9/bin:$PATH"

@@ -10,3 +10,16 @@ vim.api.nvim_create_autocmd('Filetype', {
   pattern = { 'c', 'cpp' },
   command = 'setlocal shiftwidth=8 tabstop=8'
 })
+
+vim.api.nvim_create_autocmd('Filetype', {
+  group = 'setIndent',
+  pattern = { 'go' },
+  command = 'setlocal shiftwidth=8 tabstop=8'
+})
+
+
+vim.api.nvim_create_autocmd('Filetype', {
+  group = 'setIndent',
+  pattern = { 'odin' },
+  command = 'setlocal shiftwidth=8 tabstop=8'
+})
