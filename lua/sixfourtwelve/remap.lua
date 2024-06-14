@@ -13,4 +13,4 @@ vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-vim.api.nvim_set_keymap('n', 's', 'xi', {noremap = true})
+vim.api.nvim_set_keymap('n', 's', 'xi', { noremap = true })

@@ -3,7 +3,7 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   "vtsls",
-  "astro"
+  "astro",
 })
 
 lsp.set_preferences({
@@ -88,7 +88,30 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 end
 
+-- Setup the Unison LSP
+require('lspconfig')['unison'].setup {
+  on_attach = on_attach,
+}
+
 lsp.setup()
+
+require 'lspconfig'.dartls.setup {
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true
+  },
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true
+    }
+  },
+}
 
 vim.diagnostic.config({
   virtual_text = true

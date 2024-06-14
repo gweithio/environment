@@ -13,7 +13,7 @@ require 'nvim-tree'.setup {
     adaptive_size = true,
     float = {
       quit_on_focus_loss = true,
-      enable = false
+      enable = true
     }
   }
 }

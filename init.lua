@@ -47,11 +47,12 @@ vim.api.nvim_exec([[
 
 
 vim.api.nvim_command(
-  "autocmd BufWritePre *.ex,*.go,*.lua,*.rb,*.hs,*.py,*.ml,*.mli,*.c,*.h,*.cc,*.hh,*.cpp,*.hpp,*.php,*.odin, lua vim.lsp.buf.format()")
+  "autocmd BufWritePre *.ex,*.go,*.lua,*.rb,*.hs,*.py,*.ml,*.mli,*.c,*.h,*.cc,*.hh,*.cpp,*.hpp,*.m,*.php,*.odin,*.rs, lua vim.lsp.buf.format()")
 
 vim.cmd [[colorscheme bore]]
 
 
+vim.api.nvim_set_option("clipboard", "unnamed")
 vim.api.nvim_exec([[
 set statusline=%!StatusLineNormal()
 

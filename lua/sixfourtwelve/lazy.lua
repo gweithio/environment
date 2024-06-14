@@ -2,6 +2,14 @@ vim.g.mapleader = " "
 
 return require("lazy").setup({
   {
+    'akinsho/flutter-tools.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim',
+    },
+    config = true,
+  },
+  {
     "topazape/md-preview.nvim",
     ft = { "md", "markdown", "mkd", "mkdn", "mdwn", "mdown", "mdtxt", "mdtext", "rmd", "wiki" },
     config = function()
@@ -25,6 +33,19 @@ return require("lazy").setup({
       })
     end
   },
+  {
+    -- Unison
+    "unisonweb/unison",
+    branch = "trunk",
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/editor-support/vim")
+      require("lazy.core.loader").packadd(plugin.dir .. "/editor-support/vim")
+    end,
+    init = function(plugin)
+      require("lazy.core.loader").ftdetect(plugin.dir .. "/editor-support/vim")
+    end,
+  },
+  -- { "Olical/conjure" },
   { 'fatih/vim-go' },
   { 'junegunn/goyo.vim' },
   { "nvim-treesitter/nvim-treesitter", build = ':TSUpdate', lazy = false },
