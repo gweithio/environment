@@ -95,6 +95,16 @@ require('lspconfig')['unison'].setup {
 
 lsp.setup()
 
+require 'lspconfig'.sourcekit.setup {
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  },
+}
+
 require 'lspconfig'.dartls.setup {
   cmd = { "dart", "language-server", "--protocol=lsp" },
   filetypes = { "dart" },
